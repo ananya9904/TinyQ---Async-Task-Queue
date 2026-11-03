@@ -1,0 +1,50 @@
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+#hatchling is the build backend.
+#It knows how to package your Python project into distributable formats.
+#hatchling.build tells the build frontend which backend to use.
+
+[project]
+name = "tinyq"
+version = "0.1.0" #initial development version [major.minor.patch]
+description = "A lightweight asynchronous Python task queue with retries, concurrency control, and SQLite persistence."
+requires-python = ">=3.11"
+license = "MIT" #mainly open-source liscense
+
+
+dependencies = [
+    "typer",
+]
+# Typer will help us build the CLI.
+
+
+[project.optional-dependencies]
+dev = [
+    "pytest", #testing our code
+    "pytest-asyncio", #Testing asynchronous code
+    "pytest-cov", #Checking how much of our code is tested
+    "mypy", #Checking our Python types
+    "ruff", #Checking code quality and formatting
+]
+
+
+[project.scripts] #Creating our own terminal command
+tinyq = "tinyq.cli:app"
+
+[tool.mypy]
+strict = true
+
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+# E - Common style problems
+# F - Unused imports, undefined variables
+# I - Incorrect import ordering
+# B - Common potential bugs
+# UP - Outdated Python syntax
+
+[tool.pytest.ini_options] #Configuring our testing system
+asyncio_mode = "auto"

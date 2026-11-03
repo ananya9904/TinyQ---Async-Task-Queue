@@ -1,0 +1,34 @@
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Local databases
+# We're ignoring database files because your local SQLite database is development data
+*.db
+*.sqlite
+*.sqlite3
+
+# Type checking cache
+.mypy_cache/
+
+# Build and distribution files
+dist/
+build/
+*.egg-info/
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE files
+.idea/
+
+# OS files
+.DS_Store
